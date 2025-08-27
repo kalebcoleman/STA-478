@@ -1,0 +1,15 @@
+Package: STA478
+Type: Package
+Title: Compilation of all my tools created during STA478 statisitcal computing
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Kaleb", "Coleman",
+      email = "kac965@nau.edu",
+      role = c("aut", "cre")
+    )
+  )
+Description: Will be doing many models and other statistical computing methods
+License: MIT
+Encoding: UTF-8
+LazyData: true

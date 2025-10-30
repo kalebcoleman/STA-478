@@ -1,4 +1,19 @@
-# Gelman diagnostic function
+#' Gelman-Rubin Convergence Diagnostic
+#'
+#' Computes the Gelman-Rubin statistic and related variance estimates for a set of
+#' MCMC chains, mirroring the diagnostic coded in Assignment 6.
+#'
+#' @param results Numeric matrix or array where rows correspond to iterations and
+#'   columns to chains.
+#'
+#' @return A one-row data frame with columns `W`, `B`, `sigma2.hat`, `R.hat`, and
+#'   `n.eff`.
+#'
+#' @examples
+#' sims <- cbind(rnorm(1000), rnorm(1000, 0.1))
+#' Gelman(sims)
+#'
+#' @export
 Gelman <- function(results) {
 
   # chain dimensions

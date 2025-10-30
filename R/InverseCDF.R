@@ -1,4 +1,19 @@
-# "..." allows extra parameters like rate
+#' Inverse CDF Sampling
+#'
+#' Generates random draws by transforming uniform samples through a supplied inverse
+#' CDF, as demonstrated in Assignment 6 notes.
+#'
+#' @param iCDF Function that maps probabilities in (0, 1) to quantiles.
+#' @param n Integer number of samples to generate.
+#' @param ... Additional arguments passed to `iCDF`.
+#'
+#' @return Numeric vector of simulated values.
+#'
+#' @examples
+#' inv_exp <- function(u, rate) -log(1 - u) / rate
+#' draws <- Inverse.CDF(inv_exp, n = 1000, rate = 2)
+#'
+#' @export
 Inverse.CDF <- function(iCDF, n, ...) {
 
   # step 1: draw uniforms U ~ Unif(0,1)
@@ -9,5 +24,5 @@ Inverse.CDF <- function(iCDF, n, ...) {
   # to test I use the formula from the notes: F^{-1}(u) = -log(1 - u)/rate
 
   # Step 3: return results
-  return(iCDF(u))
+  return(iCDF(u, ...))
 }

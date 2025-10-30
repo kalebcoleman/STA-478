@@ -1,4 +1,24 @@
+#' Metropolis Random-Walk Sampler (1D)
+#'
+#' Runs a one-dimensional Metropolis algorithm using user-supplied target and proposal
+#' functions, matching the sampler developed in STA 478 activities.
+#'
+#' @param target_pdf Function returning the (possibly unnormalised) target density.
+#' @param proposal Function that draws a proposal given the current state.
+#' @param start Numeric starting value for the chain.
+#' @param n Integer number of MCMC iterations.
+#' @param seed Optional integer for reproducibility.
+#'
+#' @return Numeric vector of length `n` containing the simulated chain.
+#'
+#' @examples
+#' target <- function(x) dnorm(x)
+#' proposal <- function(x) rnorm(1, mean = x, sd = 0.5)
+#' chain <- metropolis_1d(target, proposal, start = 0, n = 1000, seed = 1)
+#'
+#' @export
 metropolis_1d <- function(target_pdf, proposal, start, n, seed = NULL) {
+  if (!is.null(seed)) set.seed(seed)
 
   chain <- numeric(n)   # storage for samples
   x <- start            # initialize chain at starting value

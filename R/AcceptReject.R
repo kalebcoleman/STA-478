@@ -1,4 +1,20 @@
-# Function takes a target PDF, the domain, and a sample size
+#' Accept-Reject Sampling
+#'
+#' Draws samples from a target density on a bounded interval using the accept-reject
+#' algorithm with a uniform proposal. The function matches the Assignment 6 workflow
+#' where samples were generated under a user-specified PDF.
+#'
+#' @param target_pdf Function that evaluates the target density at numeric inputs.
+#' @param domain Numeric vector of length two giving the lower and upper bounds.
+#' @param n Integer number of samples to generate.
+#'
+#' @return Numeric vector of length `n` containing accepted samples.
+#'
+#' @examples
+#' target <- function(x) dbeta(x, 2, 5)
+#' samples <- AcceptReject(target, c(0, 1), 1000)
+#'
+#' @export
 AcceptReject <- function(target_pdf, domain, n) {
 
   # Step 1: extract domain bounds

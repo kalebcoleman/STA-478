@@ -80,6 +80,15 @@ bootstrap_performance <- function(formula,
     errors <- c(errors, mean(pred_factor != truth))               # misclassification rate for this replicate
   }
 
+  if (!length(errors)) {
+    return(list(
+      mean_error = NA_real_,
+      sd_error = NA_real_,
+      distribution = data.frame(iteration = integer(0), error = numeric(0)),
+      skipped = skipped
+    ))
+  }
+
   list(
     mean_error = mean(errors),
     sd_error = stats::sd(errors),

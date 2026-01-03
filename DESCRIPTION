@@ -1,6 +1,6 @@
 Package: STA478
 Type: Package
-Title: Compilation of all my tools created during STA478 statisitcal computing
+Title: Statistical Computing Utilities from STA 478
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -9,11 +9,17 @@ Authors@R: c(
       role = c("aut", "cre")
     )
   )
-Description: Will be doing many models and other statistical computing methods
-License: MIT
+Description: Collection of statistical computing helpers built for STA 478
+    coursework, including resampling, diagnostics, and Monte Carlo utilities.
+License: MIT + file LICENSE
+URL: https://github.com/kalebcoleman/STA-478
+BugReports: https://github.com/kalebcoleman/STA-478/issues
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.3
+Imports:
+    stats,
+    utils
 Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

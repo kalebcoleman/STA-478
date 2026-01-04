@@ -7,6 +7,11 @@
 #' @param n Integer number of samples to generate.
 #' @param ... Additional arguments passed to `iCDF`.
 #'
+#' @details
+#' If \eqn{U \sim \mathrm{Unif}(0,1)} and \eqn{X = F^{-1}(U)}, then \eqn{X} has CDF
+#' \eqn{F}. This helper generates uniforms and applies the supplied inverse CDF
+#' to obtain samples from the target distribution.
+#'
 #' @return Numeric vector of simulated values.
 #'
 #' @examples

@@ -6,6 +6,15 @@
 #' @param results Numeric matrix or array where rows correspond to iterations and
 #'   columns to chains.
 #'
+#' @details
+#' Let \eqn{W} be the average within-chain variance and \eqn{B} the between-chain
+#' variance across \eqn{m} chains of length \eqn{n}. The variance estimate is
+#' \deqn{\hat{\sigma}^2 = \frac{n - 1}{n} W + \frac{1}{n} B,}
+#' and the potential scale reduction factor is
+#' \deqn{\hat{R} = \sqrt{\hat{\sigma}^2 / W}.}
+#' Values of \eqn{\hat{R}} near 1 indicate convergence. The effective sample size
+#' uses \eqn{n_{eff} = mn \hat{\sigma}^2 / B}.
+#'
 #' @return A one-row data frame with columns `W`, `B`, `sigma2.hat`, `R.hat`, and
 #'   `n.eff`.
 #'

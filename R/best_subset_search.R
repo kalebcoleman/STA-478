@@ -18,6 +18,14 @@
 #'   evaluated. Helps prevent prohibitively large searches when the predictor
 #'   count is high. Defaults to 100,000 subsets.
 #'
+#' @details
+#' For each predictor subset, repeated \eqn{k}-fold cross-validation fits a GLM
+#' and scores either mean squared error
+#' \deqn{\mathrm{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2}
+#' or classification accuracy
+#' \deqn{\frac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i).}
+#' The reported summary averages fold scores across repeats for each subset.
+#'
 #' @return A list with two elements:
 #' \describe{
 #'   \item{summary}{Data frame with one row per subset containing the predictor

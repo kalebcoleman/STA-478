@@ -8,6 +8,14 @@
 #' @param domain Numeric vector of length two giving the lower and upper bounds.
 #' @param n Integer number of samples to generate.
 #'
+#' @details
+#' The accept-reject method uses a proposal density \eqn{g(x)} and constant
+#' \eqn{M} such that \eqn{f(x) \le M g(x)} on the domain. With a uniform proposal
+#' on \eqn{[a,b]}, the acceptance probability at proposal \eqn{x} is
+#' \deqn{\alpha(x) = \frac{f(x)}{M g(x)}.}
+#' This implementation estimates \eqn{M} from a grid over the domain and accepts
+#' when a uniform draw falls below the target density.
+#'
 #' @return Numeric vector of length `n` containing accepted samples.
 #'
 #' @examples

@@ -7,6 +7,12 @@
 #'
 #' @param data Data frame or matrix of predictors.
 #'
+#' @details
+#' The variance inflation factor for predictor \eqn{x_j} is
+#' \deqn{\mathrm{VIF}_j = \frac{1}{1 - R_j^2},}
+#' where \eqn{R_j^2} comes from regressing \eqn{x_j} on the remaining predictors.
+#' Large VIF values indicate high collinearity.
+#'
 #' @return Named numeric vector of VIF values.
 #'
 #' @examples
@@ -47,6 +53,12 @@ compute_vif <- function(data) {
 #'
 #' @param data Data frame or matrix of predictors.
 #' @param threshold Numeric cut-off for acceptable VIF values.
+#'
+#' @details
+#' At each step, the predictor with the largest VIF is removed until all
+#' remaining VIF values are below the threshold. The logic mirrors repeated
+#' application of \eqn{\mathrm{VIF}_j = 1 / (1 - R_j^2)} on the reduced design
+#' matrix.
 #'
 #' @return List with elements `kept`, `removed`, and `final_vif`.
 #'

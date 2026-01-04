@@ -7,6 +7,19 @@
 #' @param truth Vector of true class labels.
 #' @param positive Optional string naming the positive class for binary metrics.
 #'
+#' @details
+#' The confusion matrix counts predictions versus truth. Accuracy is
+#' \deqn{\frac{TP + TN}{TP + TN + FP + FN}.}
+#' For binary outcomes, sensitivity (recall) is
+#' \deqn{\frac{TP}{TP + FN},}
+#' specificity is
+#' \deqn{\frac{TN}{TN + FP},}
+#' precision is
+#' \deqn{\frac{TP}{TP + FP},}
+#' and the F1 score is
+#' \deqn{2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}
+#' {\mathrm{precision} + \mathrm{recall}}.}
+#'
 #' @return List with elements `confusion` (table) and `metrics` (named list).
 #'
 #' @examples

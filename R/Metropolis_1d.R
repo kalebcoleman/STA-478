@@ -9,6 +9,14 @@
 #' @param n Integer number of MCMC iterations.
 #' @param seed Optional integer for reproducibility.
 #'
+#' @details
+#' The Metropolis algorithm targets a density \eqn{f(x)} by proposing
+#' \eqn{y \sim q(y \mid x)} and accepting with probability
+#' \deqn{\alpha(x,y) = \min\left(1, \frac{f(y)}{f(x)}\right)}
+#' for a symmetric proposal. Accepted proposals update the chain; rejections
+#' repeat the current state, producing a Markov chain with stationary density
+#' proportional to \eqn{f(x)}.
+#'
 #' @return Numeric vector of length `n` containing the simulated chain.
 #'
 #' @examples

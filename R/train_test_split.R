@@ -7,6 +7,11 @@
 #' @param prop Proportion of rows assigned to the training set.
 #' @param seed Optional integer seed for reproducibility.
 #'
+#' @details
+#' Rows are sampled without replacement to allocate \eqn{\lfloor p n \rfloor}
+#' observations to the training set, where \eqn{p} is `prop` and \eqn{n} is the
+#' number of rows. The remaining rows form the test set.
+#'
 #' @return List with elements `train`, `test`, and `index` (train/test row ids).
 #'
 #' @examples

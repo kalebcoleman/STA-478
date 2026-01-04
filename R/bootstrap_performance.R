@@ -12,6 +12,15 @@
 #' @param threshold Probability cutoff used to convert fitted probabilities to
 #'   class predictions.
 #'
+#' @details
+#' For each bootstrap resample, the model is fit on the resampled data and
+#' evaluated on the out-of-bag observations. The misclassification error for
+#' replicate \eqn{b} is
+#' \deqn{\widehat{err}_b = \frac{1}{|O_b|} \sum_{i \in O_b} I(\hat{p}_i \ge t \neq y_i),}
+#' where \eqn{O_b} is the out-of-bag index set, \eqn{\hat{p}_i} is the fitted
+#' probability, and \eqn{t} is the threshold. The summary returns the mean and
+#' standard deviation of \eqn{\widehat{err}_b} across replicates.
+#'
 #' @return A list with elements:
 #' \describe{
 #'   \item{mean_error}{Mean out-of-bag misclassification rate across bootstrap
